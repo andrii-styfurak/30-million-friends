@@ -1,0 +1,236 @@
+.choice {
+  background: url("../img/choice-bg__webp.jpg") no-repeat center / cover, #e0bda6;
+  padding-top: 70px;
+  position: relative;
+  z-index: 3;
+  @include xl-block {
+    height: 740px;
+  }
+
+  &__container {
+    display: flex;
+    position: relative;
+    z-index: 9;
+  }
+
+  &__list {
+    margin-bottom: 15px;
+    max-width: 392px;
+    margin: 0 auto;
+    @include xl-block {
+      margin: 32px 174px 0 auto;
+    }
+  }
+
+  &__item {
+    color: #fff;
+    display: block;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 1.4;
+    padding-left: 2px;
+    max-width: 300px;
+    transition: color .2s ease;
+    @include xl-block {
+      max-width: 400px;
+      font-size: 14px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &:hover {
+
+    }
+    &:hover &-title {
+      transform: scale(1.03);
+      box-shadow: inset 0 -10px 0 #d30d23;
+    }
+    &-wrapper {
+      @include xl-block {
+        max-width: 60%;
+      }
+    }
+    &-title {
+      font-size: 33px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      line-height: 1;
+      float: left;
+      transform-origin: center top;
+      transition: .2s ease;
+      @include xl-block {
+        width: auto;
+        float: none;
+        display: inline-block;
+        font-size: 34px;
+        margin-bottom: 10px;
+      }
+    }
+    &-text {
+      font-weight: 600;
+      padding-left: 99px;
+      @include xl-block {
+        padding-left: 0;
+      }
+    }
+    &-tip {
+      font-style: italic;
+      font-size: 10px;
+      margin-top: 5px;
+      padding-left: 99px;
+      @include xl-block {
+        padding-left: 0;
+        margin-top: 2px;
+        font-size: 12px;
+      }
+    }
+    &-box {
+      width: 107px;
+      height: 107px;
+      margin-left: auto;
+      margin-top: -5px;
+      perspective: 1000px;
+      display: none;
+      @include xl-block {
+        display: block;
+      }
+      &:after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 2px;
+        border-radius: 50%;
+        margin: 90% auto;
+        box-shadow: 0 16px 6px 3px rgba(0, 0, 0, 0.6);
+      }
+      &-img {
+        display: block;
+        width: 111px;
+        height: 111px;
+        margin: -2px;
+      }
+      &-flipper,
+      &:after {
+        transition: .8s ease;
+        transition-delay: 0s;
+        transform-style: preserve-3d;
+        position: relative;
+      }
+      &-front,
+      &-back {
+        width: 107px;
+        height: 107px;
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        transition: 1.5s ease;
+        transform-style: preserve-3d;
+      }
+      &-front {
+        z-index: 2;
+        transform: rotateY(0deg) translateZ(0px);
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      &-back {
+        transform: rotateY(180deg) translateZ(0px);
+        background: $color-main;
+        &-text {
+          font-family: "Permanent Marker", serif;
+          color: #fff;
+          font-size: 20px;
+          line-height: 1;
+          text-align: center;
+          text-transform: uppercase;
+          margin-top: 30px;
+          transform: rotate(-3deg);
+          transition: .3s ease;
+          transition-delay: 0;
+        }
+      }
+    }
+    &:hover &-box-flipper {
+      transform: rotateY(180deg) translateY(-10px);
+      transition: 1s cubic-bezier(0.64, -0.6, 0.3, 1.53);
+      transition-delay: .2s;
+    }
+    &:hover &-box-back {
+      transform: rotateY(180deg) translateZ(10px);
+    }
+    &:hover &-box-back-text {
+      transform: rotate(7deg);
+      transition-delay: 1.26s;
+    }
+    &:hover &-box:after {
+      transform: rotateY(180deg) scaleX(.8);
+      opacity: .8;
+      transition: 1s cubic-bezier(0.64, -0.6, 0.3, 1.53);
+      transition-delay: .2s;
+    }
+    &:last-child:hover &-box-back {
+      background: #fff;
+    }
+    &:last-child:hover &-box-back-text {
+      color: $color-main;
+      transform: rotateZ(7deg) translateZ(8px) scale(1.2);
+      transition-delay: .1s;
+    }
+    &:before {
+      content: ".............................................................................................................";
+      display: block;
+      overflow: hidden;
+      font-weight: 900;
+      font-size: 11px;
+      color: #fff;
+      line-height: 1;
+      margin-top: 8px;
+      margin-bottom: 17px;
+      letter-spacing: 3px;
+      clear: both;
+      pointer-events: none;
+      @include xl-block {
+        font-size: 12px;
+        letter-spacing: 4px;
+        margin-top: 14px;
+        margin-bottom: 21px;
+      }
+    }
+    &:first-child:before {
+      display: none;
+    }
+    &:last-child {
+      display: none;
+      @include xl(display, flex);
+    }
+    &:last-child &-title {
+      font-size: 25px;
+    }
+    &:last-child &-box:after {
+      display: none;
+    }
+    &:last-child &-box-back {
+      transform: rotateY(0) translateZ(0px);
+      transition: .4s ease;
+    }
+    &:last-child &-box-back-text {
+      transition: .2s ease .2s;
+    }
+  }
+
+  &__dog {
+    width: 100%;
+    height: 410px;
+    margin: 0 auto;
+    margin-top: 30px;
+    background: url(../img/choice-label__webp.png) no-repeat calc(-50vw + 100% + 92px) 197px/176px, url(../img/black-bg-fade__webp.png) no-repeat center bottom/102% 320px, url(../img/hero-dog__webp.png) no-repeat calc(-50vw + 100% + 209px) 4px/620px;
+    @include xl-block {
+      background: url(../img/choice-label__webp.png) no-repeat calc(-50vw + 100% + -185px) 301px/275px, url(../img/black-bg-fade__webp.png) no-repeat center bottom/100% 490px, url(../img/hero-dog__webp.png) no-repeat calc(-50vw + 100% + -37px) 50px/850px;
+      margin-top: 60px;
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      height: auto;
+    }
+  }
+}

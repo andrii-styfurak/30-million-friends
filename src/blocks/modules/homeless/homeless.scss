@@ -1,0 +1,23 @@
+.homeless {
+  height: 377px;
+  padding-top: 279px;
+  background: url(../img/homeless-number__webp.png) no-repeat center 227px / 251px,
+    url(../img/homeless-animals.png) no-repeat center 70px / 291px,
+    url(../img/block-shadow.png) no-repeat center / 100% 300%,
+    url(../img/homeless-bg-lite-wide__webp.jpg) repeat-x center -35px / auto 110%, #100d10;
+    @include lg-block {
+      background: url(../img/homeless-number__webp.png) no-repeat center 459px/550px 100px, url(../img/homeless-animals.png) no-repeat center 140px/628px, url(../img/block-shadow.png) no-repeat center/200% 400%, url(../img/homeless-bg-lite-wide__webp.jpg) repeat-x center 10px / auto 100%, #100d10;
+      min-height: 739px;
+      padding-top: 581px;
+    };
+
+  &__text {
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    padding: 0 20px;
+    @include lg(font-size, 22px);
+  }
+}

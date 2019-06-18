@@ -1,0 +1,8 @@
+mixin picture(params = {})
+  picture
+    source(srcset=`img/${params.name}__webp.webp` type="image/webp")
+    img.img-responsive(class=params.class src=`img/${params.name}__webp.png` alt=params.alt)
+
+mixin icon(params = {})
+  svg.icon(class=`icon--${params.name}`)
+    use(xlink:href=`#${params.name}`)

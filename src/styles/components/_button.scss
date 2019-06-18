@@ -1,0 +1,138 @@
+.btn {
+  font-size: 18px;
+  @include lg(font-size, 16px);
+  line-height: 1.2;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  color: #fff;
+  display: inline-block;
+  padding: 21px 20px 25px;
+  @include lg(padding, 19px 0);
+  min-width: 190px;
+  height: 62px;
+  @include lg(height, 55px);
+  border: none;
+  border-radius: 18px;
+  background: $color-main;
+  transition: color $btn-transition, background $btn-transition;
+  cursor: pointer;
+  user-select: none;
+  outline: 0;
+  svg {
+    transition: fill $btn-transition;
+  }
+  &:hover {
+    background: #fff;
+    color: $color-main;
+    svg {
+      fill: $color-main;
+    }
+  }
+  &:active {
+    opacity: .7 !important;
+  }
+
+  &--white,
+  &--red {
+    min-width: 62px;
+    padding: 0 !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    @include xl(min-width, 55px);
+  }
+
+  &--white {
+    background: #fff;
+    color: $color-main;
+    svg {
+      fill: $color-main;
+    }
+    &:hover {
+      background: $color-main;
+      color: #fff;
+      svg {
+        fill: #fff;
+      }
+    }
+  }
+
+  &--dark,
+  &--dark-2,
+  &--dark-3,
+  &--dark-4 {
+    width: 54px;
+    height: 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: url("../img/slider-share-btns.png") no-repeat 2px 2px / auto 54px;
+    transform: scale(.8) rotate(2deg);
+    @include xl-block {
+      transform: scale(1.1);
+    }
+    svg {
+      width: 22px;
+      height: 22px;
+      transition: $btn-transition;
+      @include xl-block {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    &:hover {
+      svg {
+        opacity: .5;
+      }
+    }
+    &:active {
+      opacity: .9;
+      transform: scale(.98)
+    }
+  }
+  &--dark-2 {
+    background-position: -52px 2px;
+    svg {
+      transform: rotate(-3deg);
+    }
+  }
+  &--dark-3 {
+    background-position: -108px 0;
+    svg {
+      transform: translate(1px, 1px);
+    }
+  }
+  &--dark-4 {
+    background-position: -164px 0;
+    svg {
+      transform: translate(-1px, 1px);
+    }
+  }
+
+  &--play {
+    width: 103px;
+    min-width: 103px;
+    height: 100px !important;
+    background: url("../img/play.png") no-repeat center / 103px;
+    transition: .2s cubic-bezier(0.175, 1.185, 0.32, 1.275);
+    transform: scale(.8);
+    @include md-block {
+      transform: scale(1);
+    }
+    &:hover {
+      background: url("../img/play.png") no-repeat center / 103px;
+      transform: scale(.8);
+      @include md-block {
+        transform: scale(1.1);
+      }
+    }
+    &:active {
+      transition: .1s ease;
+      transform: scale(.8);
+      @include md-block {
+        transform: scale(1);
+      }
+    }
+  }
+}

@@ -1,0 +1,264 @@
+.hero {
+  padding-top: 20px;
+  position: relative;
+  background:
+    url("../img/hero-dog__webp.png") no-repeat calc(-50vw + 100% + 87px) 205px / 254px,
+    url("../img/block-shadow.png") no-repeat center / 100% 100%,
+    url("../img/hero-bg__webp.jpg") no-repeat center top / cover, #655d59;
+  @include md-block {
+    padding-top: 44px;
+  }
+  @include lg-block {
+    background: url(../img/block-shadow.png) no-repeat center bottom/100% 120%, url(../img/hero-dog__webp.png) no-repeat calc(-50vw + 100% + -135px) 204px/421px, url(../img/hero-bg__webp.jpg) no-repeat center top/cover, #655d59;
+    height: 94vh;
+    min-height: 600px;
+    padding-top: 28px;
+  }
+  @include xl-block {
+    height: 96vh;
+    min-height: 740px;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -14px;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    height: 28px;
+    background: url("../img/hero-separator__webp.png") repeat-x center top/460px;
+    box-shadow: 0 30px 30px 10px rgba(0, 0, 0, 0.71), inset 0 -18px 10px rgba(0, 0, 0, 0.6);
+  }
+
+  &__container {
+    position: relative;
+    height: 100%;
+    min-height: 90vh;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+    @include md-block {
+      min-height: unset;
+    }
+    @include lg-block {
+      justify-content: space-between;
+      flex-direction: row;
+      align-items: start;
+    }
+  }
+
+  &__logo {
+    display: block;
+    margin: 0 auto auto;
+    width: 92px;
+    transition: opacity .3s ease;
+    pointer-events: all;
+    @include md(width, 100px);
+    @include lg-block {
+      width: 112px;
+      height: 160px;
+      margin: 0;
+      opacity: 1;
+    }
+    &:hover {
+      opacity: .8;
+    }
+    &-img {
+      width: 100%;
+    }
+  }
+
+  &__play-video {
+    left: 50%;
+    top: 47%;
+    margin: 30px auto 20px;
+    opacity: 1;
+    transition: .2s ease;
+    pointer-events: all;
+    display: block;
+    .video-show & {
+      opacity: 0;
+    }
+    .video-show:hover & {
+      opacity: 0;
+    }
+    &:hover {
+      @include md-block {
+        opacity: 1 !important;
+      }
+    }
+    @include md-block {
+      position: absolute;
+      margin: -50px 0 0 -52px;
+    }
+  }
+
+  &__title {
+    font-family: "Permanent Marker", serif;
+    color: #fff;
+    font-size: 50px;
+    line-height: 47px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    @include sm-block {
+      font-size: 63px;
+      line-height: 62px;
+    }
+    @include lg(display, none);
+    br {
+      display: none;
+      @include md(display, block);
+    }
+  }
+
+  &__btns {
+    padding: 0 15px 35px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    max-width: 400px;
+    width: 100%;
+    margin: 25px auto 0;
+    pointer-events: all;
+    @include lg-block {
+      margin: 0;
+    }
+    > .btn {
+      width: 100%;
+      max-width: 250px;
+    }
+  }
+
+  &__video {
+    &-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      transition: .2s ease;
+      opacity: 0;
+      &:empty {
+        opacity: 0;
+      }
+      .video-show & {
+        opacity: 1;
+      }
+    }
+    &-foreground {
+      overflow: hidden;
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        background: url(../img/block-shadow.png) no-repeat center bottom / 110% 110%;
+        top: -3px;
+        left: -3px;
+        right: -3px;
+        bottom: -3px;
+        z-index: 6;
+        box-shadow: inset 0px -60px 20px -20px rgba(0, 0, 0, 0.8);
+        pointer-events: none;
+        @include lg(pointer-events, all);
+      }
+    }
+    &-foreground,
+    &-foreground iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 3;
+      iframe {
+        transform: scale(1.2) translateY(-10px);
+        transform-origin: bottom;
+        width: 100%;
+        margin: auto;
+      }
+    }
+  }
+
+  &__share {
+    margin-left: 7px;
+    position: relative;
+    @include lg(margin-left, 0);
+    @include lg(white-space, nowrap);
+    .btn {
+      &:not(:first-child) {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        right: 0;
+        opacity: 0;
+        transform: scale(.5);
+        transform-origin: center;
+      }
+      &:first-child {
+        @include lg(display, none !important);
+        z-index: 2;
+        position: relative;
+        svg:last-child {
+          display: none;
+        }
+        &:hover {
+          background: #fff;
+          svg {
+            fill: $color-main;
+          }
+        }
+        &:active {
+          opacity: 1;
+        }
+      }
+    }
+    &--open {
+      .btn {
+        &:not(:first-child) {
+          opacity: 1;
+        }
+        &:nth-child(2) {
+          transform: scale(1) translate(calc(-100% - 10px), 0);
+        }
+        &:nth-child(3) {
+          transform: scale(1) translate(calc(-100% - 10px), calc(-100% - 10px));
+          transition-delay: .025s;
+        }
+        &:nth-child(4) {
+          transform: scale(1) translate(0, calc(-100% - 10px));
+          transition-delay: .05s;
+        }
+        &:first-child {
+          transform: rotate(180deg) scale(.75);
+          svg:first-child {
+            display: none;
+          }
+          svg:last-child {
+            display: inline-block;
+          }
+        }
+      }
+    }
+
+    .btn {
+      transition: transform 0.3s;
+    }
+
+    .btn:not(:first-child) {
+      @include lg-block {
+        transform: none;
+        position: static;
+        opacity: 1;
+        margin-left: 10px;
+      }
+    }
+  }
+}

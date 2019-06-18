@@ -1,0 +1,22 @@
+section.hero
+  .hero__container.container
+    a.hero__logo(href="#!")
+      img.hero__logo-img(src="./img/logo.svg" alt="Fondation 30 Millions d'Amis")
+    button#js-play-video.btn.btn--play.hero__play-video
+    .hero__title on<br> est les<br> cham-<br>pions&nbsp;!
+    .hero__btns
+      a.btn(href="https://don.30millionsdamis.fr/asso/site/30ma/abandons/fr/don/index.html") Faire un don
+      .hero__share
+        button#js-toggle-share.btn.btn--white
+          +icon({ name: "whatsapp" })
+          +icon({ name: "cross" })
+        a.btn.btn--white(href="https://api.whatsapp.com/send?text=Vid%C3%A9o%20choc%20%3A%20le%20palmar%C3%A8s%20de%20la%20honte%20!%20Vous%20ne%20devinerez%20jamais%20dans%20quel%20domaine%20la%20France%20reste%20toujours%20championne%20cet%20%C3%A9t%C3%A9%E2%80%A6%20by%20Fondation%20https%3A%2F%2Fwww.nonalabandon.com%2F" target="_blank")
+          +icon({ name: "whatsapp" })
+        a.btn.btn--white(href="https://www.facebook.com/sharer.php?u=https://28devs.xyz/30-million-friends" target="_blank")
+          +icon({ name: "facebook" })
+        a.btn.btn--white(href="https://twitter.com/intent/tweet?text=Vid%C3%A9o%20choc%20%3A%20le%20palmar%C3%A8s%20de%20la%20honte%20!%20Vous%20ne%20devinerez%20jamais%20dans%20quel%0Adomaine%20la%20France%20reste%20toujours%20championne%20cet%20%C3%A9t%C3%A9%E2%80%A6%20by%20Fondation%0A%4030millionsdamis%20https%3A%2F%2Fwww.nonalabandon.com%2F" target="_blank")
+          +icon({ name: "twitter" })
+
+  .hero__video-background
+    .hero__video-foreground
+      #player
